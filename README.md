@@ -26,37 +26,6 @@
 - **State Management & UI:** React Hooks, Framer Motion for animations, React Icons  
 - **Deployment Ready:** Optimized for Vercel, supports dark mode  
 
----
-📂 Project Structure
-
-growthhub/
-src/
-├── app/
-│   ├── api/
-│   ├── auth/
-│   ├── dashboard/
-│   ├── context/
-│   ├── success/
-│   ├── cancel/
-│   ├── layout.tsx
-│   └── page.tsx
-├── components/
-│   ├── ui/
-│   ├── Navbar.tsx
-│   └── Pricing.tsx
-├── generated/
-│   └── prisma/
-├── lib/
-│   ├── prisma.ts
-│   ├── stripe.ts
-│   └── utils.ts
-├── pages/
-│   ├── api/
-│   └── schemas/
-├── middleware.ts
-└── globals.css
-
-
 ## Installation
 
 1. Clone the repository:
