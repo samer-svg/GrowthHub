@@ -27,6 +27,44 @@
 - **Deployment Ready:** Optimized for Vercel, supports dark mode  
 
 ---
+📂 Project Structure
+growthhub/
+├── prisma/                # Database schema + migrations
+│   └── schema.prisma
+├── src/
+│   ├── app/               # Next.js App Router (new)
+│   │   ├── api/           # API endpoints (goals, subscriptions, webhooks, etc.)
+│   │   ├── auth/          # Authentication pages
+│   │   ├── dashboard/     # Authenticated user dashboard
+│   │   ├── context/       # React context providers
+│   │   ├── success/       # Stripe checkout success page
+│   │   ├── cancel/        # Stripe checkout cancel page
+│   │   ├── layout.tsx     # Root layout
+│   │   └── page.tsx       # Landing page
+│   │
+│   ├── components/        # UI + custom components
+│   │   ├── ui/            # Shadcn UI components
+│   │   ├── Navbar.tsx
+│   │   └── Pricing.tsx
+│   │
+│   ├── generated/         # Prisma client & types
+│   ├── lib/               # Utilities & integrations
+│   │   ├── prisma.ts      # Prisma client
+│   │   ├── stripe.ts      # Stripe SDK helpers
+│   │   └── utils.ts       # General utilities
+│   │
+│   ├── pages/             # Legacy Pages Router (still used)
+│   │   ├── api/           # API routes (auth, status, users, etc.)
+│   │   └── schemas/       # Zod schemas & validators
+│   │
+│   ├── middleware.ts      # Auth/session middleware
+│   └── globals.css        # Global styles
+│
+├── package.json
+├── tsconfig.json
+├── eslint.config.mjs
+├── postcss.config.mjs
+└── README.md
 
 ## Installation
 
