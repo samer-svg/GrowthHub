@@ -28,6 +28,7 @@
 
 ---
 📂 Project Structure
+
 growthhub/
 src/
 ├── app/
