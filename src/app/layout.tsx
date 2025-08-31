@@ -3,7 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Providers } from "@/components/Providers";
 import { DarkModeProvider } from "./context/DarkModeContext";
-// Pre-hydration theme script to avoid light-mode flash
+
+
 const themeScript = `(() => {
   try {
     const stored = localStorage.getItem('darkMode');
@@ -38,7 +39,7 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased `}
       >
         <DarkModeProvider>
           <Providers>{children}</Providers>

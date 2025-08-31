@@ -99,7 +99,7 @@ export default function DashboardPricingPage() {
     ${plan.id === 'pro' ? 'hover:border-blue-500' : ''}
     ${plan.id === 'premium' ? 'hover:border-yellow-500' : ''}
     ${plan.id === 'free' ? 'hover:border-white dark:hover:border-white/30' : ''}
-    transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl `}
+    transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl `}
             >
               <div>
                 {/* Plan Name */}

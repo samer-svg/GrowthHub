@@ -12,6 +12,19 @@ import {
 } from "react-icons/fi";
 import Particles from "../components/Particles";
 import ScrambledText from "../components/ScrambledText";
+import { Playfair_Display } from "next/font/google";
+import { Inter } from "next/font/google";
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["400", "700", "900"],
+  style : ["italic","normal"]
+})
+
+const inter = Inter({
+  subsets: ["latin-ext"],
+  weight: ["400","700","900"]
+})
 
 export default function LandingPage() {
   const [loading, setLoading] = useState(false);
@@ -83,7 +96,7 @@ export default function LandingPage() {
   ];
 
   return (
-    <div className="relative min-h-screen w-full bg-black ">
+    <div className={`${inter.className} relative min-h-screen w-full bg-black `}>
       {/* Particles as full-page background */}
       <div className="fixed bg-black inset-0  w-full h-full ">
         <Particles
@@ -98,16 +111,16 @@ export default function LandingPage() {
         />
       </div>
       {/* Hero Section */}
-      <section className="relative flex flex-col items-center min-h-screen justify-center text-center py-24 sm:py-32 px-6 max-w-5xl mx-auto ">
-        <h2 className="text-5xl sm:text-6xl md:text-7xl font-extrabold text-slate-800 dark:text-white leading-tight">
+      <section className={` relative flex flex-col items-center min-h-screen justify-center text-center py-24 sm:py-32 px-6 max-w-5xl mx-auto `}>
+        <h2 className={`${playfair.className} text-5xl sm:text-6xl md:text-7xl font-extrabold text-slate-800 dark:text-white leading-tight italic`}>
           Unlock Your Potential with{" "}
-          <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 dark:from-blue-400 dark:via-purple-400 dark:to-rose-500 bg-clip-text text-transparent ">
+          <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 dark:from-blue-400 dark:via-purple-400 dark:to-rose-500 bg-clip-text text-transparent italic">
             GrowthHub
           </span>
         </h2>
 
         <ScrambledText
-          className="scrambled-text-demo text-xl sm:text-2xl text-slate-600 dark:text-slate-300 mb-12 max-w-3xl leading-relaxed font-mono font-semibold cursor-none "
+          className="scrambled-text-demo text-xl text-black sm:text-2xl dark:text-slate-300 mb-12 max-w-3xl leading-relaxed font-mono font-semibold cursor-none "
           radius={100}
           duration={1.2}
           speed={0.5}
@@ -276,7 +289,7 @@ export default function LandingPage() {
       </section>
 
       {/* Footer */}
-      <footer className="w-full bg-slate-900 dark:bg-slate-950 text-white py-12 sm:py-16 relative z-10">
+      <footer className="w-full relative  text-white py-12 sm:py-16">
         <div className="max-w-6xl mx-auto px-6 text-center">
           <div className="mb-8">
             <h4 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-4">
