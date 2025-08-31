@@ -24,10 +24,8 @@
 - **Authentication:** NextAuth.js (Google, GitHub)  
 - **Payments:** Stripe Checkout for subscription management  
 - **State Management & UI:** React Hooks, Framer Motion for animations, React Icons  
-- **Deployment Ready:** Optimized for Vercel, supports dark mode  
-
-=======
->>>>>>> e2f815dd0d85693f810cb39bb8326c24f6bd1116
+- **Deployment Ready:** Optimized for Vercel, supports dark mode
+- 
 ## Installation
 
 1. Clone the repository:
