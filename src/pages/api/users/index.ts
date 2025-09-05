@@ -1,6 +1,6 @@
 import bcrypt from "bcryptjs";
 import { prisma } from "@/lib/prisma";
-import { userCreateSchema } from "@/pages/schemas/user";
+import { userCreateSchema } from "@/schemas/user";
 import { z } from "zod";
 import type { NextApiRequest, NextApiResponse } from "next";
 

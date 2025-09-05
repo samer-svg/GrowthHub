@@ -2,7 +2,7 @@ import { prisma } from "@/lib/prisma";
 import { Prisma } from "@/generated/prisma";
 import type { NextApiRequest, NextApiResponse } from "next";
 import bcrypt from "bcryptjs";
-import { userUpdateSchema } from "@/pages/schemas/user";
+import { userUpdateSchema } from "@/schemas/user";
 import { z } from "zod";
 
 export default async function handler(
