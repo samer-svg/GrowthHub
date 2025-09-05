@@ -64,14 +64,10 @@ export default function Navbar() {
                 </div>
               </Link>
             ))}
-            <div className="flex items-center gap-3">
-              <DarkModeToggle />
-            </div>
           </div>
 
           {/* Mobile hamburger button */}
           <div className="md:hidden flex items-center gap-3">
-            <DarkModeToggle />
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-all duration-300"
