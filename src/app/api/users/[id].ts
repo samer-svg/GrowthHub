@@ -29,7 +29,7 @@ export async function PUT(
     const body = await req.json();
     const parsed = userUpdateSchema.parse(body);
 
-    const updateData: any = {};
+    const updateData: Record<string,unknown> = {};
     if (parsed.email) updateData.email = parsed.email.toLowerCase();
     if (parsed.password)
       updateData.password = await bcrypt.hash(parsed.password, 10);

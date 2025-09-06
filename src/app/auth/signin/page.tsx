@@ -13,7 +13,7 @@ const playpen = Playpen_Sans({
 })
 
 export default function SignInPage() {
-  const [providers, setProviders] = useState<any>(null);
+  const [providers, setProviders] = useState<Record<string,unknown> | null> (null);
   const { data: session, status } = useSession();
   const router = useRouter();
 

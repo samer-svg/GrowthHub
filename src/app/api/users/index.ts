@@ -10,7 +10,7 @@ export async function GET() {
     const users = await prisma.user.findMany();
     return NextResponse.json(users);
   } catch (error) {
-    return NextResponse.json({ error: "Failed to fetch users" }, { status: 500 });
+    return NextResponse.json({ error: "Failed to fetch users" , details : error }, { status: 500 });
   }
 }
 

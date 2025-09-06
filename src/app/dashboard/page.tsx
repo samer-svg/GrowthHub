@@ -22,7 +22,7 @@ export default function DashboardPage() {
   const { data: session, status } = useSession();
   const router = useRouter();
 
-  const [stats, setStats] = useState<Stats | null>(null);
+  const [stats, _setStats] = useState<Stats | null>(null);
 
   useEffect(() => {
     if (status !== "loading" && status === "unauthenticated") {
