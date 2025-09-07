@@ -10,7 +10,10 @@ export async function GET() {
     const users = await prisma.user.findMany();
     return NextResponse.json(users);
   } catch (error) {
-    return NextResponse.json({ error: "Failed to fetch users" , details : error }, { status: 500 });
+    return NextResponse.json(
+      { error: "Failed to fetch users", details: error },
+      { status: 500 },
+    );
   }
 }
 
@@ -25,7 +28,10 @@ export async function POST(req: NextRequest) {
     });
 
     if (existingUser) {
-      return NextResponse.json({ error: "User already exists" }, { status: 409 });
+      return NextResponse.json(
+        { error: "User already exists" },
+        { status: 409 },
+      );
     }
 
     const hashedPassword = await bcrypt.hash(parsed.password, 10);
@@ -43,7 +49,7 @@ export async function POST(req: NextRequest) {
         email: newUser.email,
         userName: newUser.userName,
       },
-      { status: 201 }
+      { status: 201 },
     );
   } catch (error: unknown) {
     if (error instanceof z.ZodError) {

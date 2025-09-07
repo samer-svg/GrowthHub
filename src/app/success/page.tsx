@@ -18,7 +18,6 @@ export default function SuccessPage() {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center  dark:from-slate-900 px-6">
-
       {/* Success Card */}
       <div className="bg-white dark:bg-slate-800 rounded-3xl shadow-2xl p-12 max-w-xl text-center border border-slate-200 dark:border-slate-700">
         <FiCheckCircle className="mx-auto w-20 h-20 text-emerald-500 mb-6 animate-bounce" />
@@ -26,7 +25,11 @@ export default function SuccessPage() {
           Payment Successful!
         </h1>
         <p className="text-lg sm:text-xl text-slate-600 dark:text-slate-300 mb-8">
-          Welcome to <span className="font-bold text-blue-600 dark:text-blue-400">GrowthHub Pro</span> 🚀
+          Welcome to{" "}
+          <span className="font-bold text-blue-600 dark:text-blue-400">
+            GrowthHub Pro
+          </span>{" "}
+          🚀
         </p>
         <button
           onClick={handleDashboardRedirect}

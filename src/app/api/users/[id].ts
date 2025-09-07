@@ -7,7 +7,7 @@ import { NextRequest, NextResponse } from "next/server";
 // GET /api/users/[id]
 export async function GET(
   req: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: { id: string } },
 ) {
   try {
     const user = await prisma.user.findUnique({ where: { id: params.id } });
@@ -15,21 +15,25 @@ export async function GET(
       return NextResponse.json({ error: "User not found" }, { status: 404 });
     }
     return NextResponse.json(user, { status: 200 });
-  } catch (error) {
-    return NextResponse.json({ error: "Failed to fetch user" }, { status: 500 });
+  } catch (error: unknown) {
+    if (error instanceof Error)
+      return NextResponse.json(
+        { error: error.message || "Unknown error" },
+        { status: 500 },
+      );
   }
 }
 
 // PUT /api/users/[id]
 export async function PUT(
   req: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: { id: string } },
 ) {
   try {
     const body = await req.json();
     const parsed = userUpdateSchema.parse(body);
 
-    const updateData: Record<string,unknown> = {};
+    const updateData: Record<string, unknown> = {};
     if (parsed.email) updateData.email = parsed.email.toLowerCase();
     if (parsed.password)
       updateData.password = await bcrypt.hash(parsed.password, 10);
@@ -53,12 +57,13 @@ export async function PUT(
 // DELETE /api/users/[id]
 export async function DELETE(
   req: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: { id: string } },
 ) {
   try {
     await prisma.user.delete({ where: { id: params.id } });
     return NextResponse.json({ message: "User deleted" }, { status: 200 });
-  } catch (error) {
-    return NextResponse.json({ error: "Failed to delete user" }, { status: 500 });
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : "Unknown Error";
+    return NextResponse.json({ error: message }, { status: 500 });
   }
 }

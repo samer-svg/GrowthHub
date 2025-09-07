@@ -18,13 +18,13 @@ import { Inter } from "next/font/google";
 const playfair = Playfair_Display({
   subsets: ["latin"],
   weight: ["400", "700", "900"],
-  style : ["italic","normal"]
-})
+  style: ["italic", "normal"],
+});
 
 const inter = Inter({
   subsets: ["latin-ext"],
-  weight: ["400","700","900"]
-})
+  weight: ["400", "700", "900"],
+});
 
 export default function LandingPage() {
   const [loading, setLoading] = useState(false);
@@ -96,7 +96,9 @@ export default function LandingPage() {
   ];
 
   return (
-    <div className={`${inter.className} relative min-h-screen w-full bg-black `}>
+    <div
+      className={`${inter.className} relative min-h-screen w-full bg-black `}
+    >
       {/* Particles as full-page background */}
       <div className="fixed bg-black inset-0  w-full h-full ">
         <Particles
@@ -111,8 +113,12 @@ export default function LandingPage() {
         />
       </div>
       {/* Hero Section */}
-      <section className={` relative flex flex-col items-center min-h-screen justify-center text-center py-24 sm:py-32 px-6 max-w-5xl mx-auto `}>
-        <h2 className={`${playfair.className} text-5xl sm:text-6xl md:text-7xl font-extrabold text-slate-800 dark:text-white leading-tight italic`}>
+      <section
+        className={` relative flex flex-col items-center min-h-screen justify-center text-center py-24 sm:py-32 px-6 max-w-5xl mx-auto `}
+      >
+        <h2
+          className={`${playfair.className} text-5xl sm:text-6xl md:text-7xl font-extrabold text-slate-800 dark:text-white leading-tight italic`}
+        >
           Unlock Your Potential with{" "}
           <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 dark:from-blue-400 dark:via-purple-400 dark:to-rose-500 bg-clip-text text-transparent italic">
             GrowthHub
@@ -126,8 +132,8 @@ export default function LandingPage() {
           speed={0.5}
           scrambleChars={".:"}
         >
-            A modern platform to track your goals, habits, and progress. grow
-            smarter with AI-powered insights.
+          A modern platform to track your goals, habits, and progress. grow
+          smarter with AI-powered insights.
         </ScrambledText>
 
         <div className="flex flex-col sm:flex-row gap-6 items-center">

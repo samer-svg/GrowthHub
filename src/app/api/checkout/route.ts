@@ -33,10 +33,12 @@ export async function POST(req: Request) {
     });
 
     return NextResponse.json({ url: session.url });
-} catch (err: any) {
-  console.error("Stripe Checkout Error:", err);
-  return NextResponse.json(
-    { error: err.message || "Unknown error" },
-    { status: 500 }
-  )}
+  } catch (err: unknown) {
+    if (err instanceof Error) {
+      return NextResponse.json(
+        { error: err.message || "Unknown error" },
+        { status: 500 },
+      );
+    }
+  }
 }

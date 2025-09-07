@@ -1,5 +1,4 @@
-@import 'tailwindcss';
-@import "tw-animate-css";
+@import "tailwindcss";
 
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -15,7 +14,7 @@
 /* Ensure dark mode is applied immediately */
 html.dark {
   color-scheme: dark;
-  background-color: black!important; /* slate-900 */
+  background-color: black !important; /* slate-900 */
   color: #f8fafc !important; /* slate-50 */
 }
 
@@ -38,8 +37,10 @@ html:not(.dark) body {
 }
 
 /* Force all main containers to have dark background by default */
-main, div[class*="min-h-"], div[class*="bg-"] {
-  background-color: black!important; /* slate-900 */
+main,
+div[class*="min-h-"],
+div[class*="bg-"] {
+  background-color: black !important; /* slate-900 */
 }
 
 /* Override for light mode */
@@ -65,7 +66,7 @@ html:not(.dark) div[class*="bg-gradient-to-br"] {
 /* Force immediate dark background for all pages */
 body > div,
 body > div > div {
-  background-color: black!important; /* slate-900 */
+  background-color: black !important; /* slate-900 */
 }
 
 html:not(.dark) body > div,

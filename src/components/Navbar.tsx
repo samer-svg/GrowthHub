@@ -1,12 +1,16 @@
 "use client";
 
-import DarkModeToggle from "@/components/DarkModeToggle";
 import { Button } from "@/components/ui/button";
 import { signOut } from "next-auth/react";
 import Link from "next/link";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-import { FiTarget, FiBookOpen, FiTrendingUp, FiCreditCard } from "react-icons/fi";
+import {
+  FiTarget,
+  FiBookOpen,
+  FiTrendingUp,
+  FiCreditCard,
+} from "react-icons/fi";
 import { motion } from "framer-motion";
 
 export default function Navbar() {
@@ -17,26 +21,26 @@ export default function Navbar() {
       name: "DSA",
       href: "/dashboard/dsa",
       icon: <FiBookOpen className="w-4 h-4" />,
-      description: "Master Data Structures and Algorithms"
+      description: "Master Data Structures and Algorithms",
     },
     {
       name: "Projects",
       href: "/dashboard/project-ideas",
       icon: <FiTarget className="w-4 h-4" />,
-      description: "Build amazing projects"
+      description: "Build amazing projects",
     },
     {
       name: "Courses",
       href: "/dashboard/courses",
       icon: <FiTrendingUp className="w-4 h-4" />,
-      description: "Learn new technologies"
+      description: "Learn new technologies",
     },
     {
       name: "Pricing",
       href: "/dashboard/pricing",
       icon: <FiCreditCard className="w-4 h-4" />,
-      description: "Upgrade your plan"
-    }
+      description: "Upgrade your plan",
+    },
   ];
 
   return (
@@ -104,14 +108,16 @@ export default function Navbar() {
                 </div>
                 <div>
                   <div className="font-medium">{item.name}</div>
-                  <div className="text-sm text-slate-500 dark:text-slate-400">{item.description}</div>
+                  <div className="text-sm text-slate-500 dark:text-slate-400">
+                    {item.description}
+                  </div>
                 </div>
               </Link>
             ))}
 
             <div className="pt-4 border-t border-slate-200 dark:border-slate-700">
-              <Button 
-                className="w-full bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 border-0 shadow-lg hover:shadow-xl transition-all duration-300" 
+              <Button
+                className="w-full bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 border-0 shadow-lg hover:shadow-xl transition-all duration-300"
                 onClick={() => signOut({ callbackUrl: "/" })}
               >
                 Logout

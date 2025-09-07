@@ -7,7 +7,7 @@ import { FiCheck } from "react-icons/fi";
 import { motion } from "framer-motion";
 
 export default function DashboardPricingPage() {
-  const { data: session, status } = useSession();
+  const { status } = useSession();
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [userPlan, setUserPlan] = useState<string | null>(null);
@@ -96,9 +96,9 @@ export default function DashboardPricingPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: index * 0.15 }}
               className={`group relative flex flex-col justify-between h-full dark:bg-slate-800/70 backdrop-blur-sm rounded-3xl p-8 border-2
-    ${plan.id === 'pro' ? 'hover:border-blue-500' : ''}
-    ${plan.id === 'premium' ? 'hover:border-yellow-500' : ''}
-    ${plan.id === 'free' ? 'hover:border-white dark:hover:border-white/30' : ''}
+    ${plan.id === "pro" ? "hover:border-blue-500" : ""}
+    ${plan.id === "premium" ? "hover:border-yellow-500" : ""}
+    ${plan.id === "free" ? "hover:border-white dark:hover:border-white/30" : ""}
     transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl `}
             >
               <div>

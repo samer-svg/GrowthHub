@@ -1,20 +1,25 @@
 "use client";
 
 import { getProviders, signIn, useSession } from "next-auth/react";
+import type { ClientSafeProvider } from "next-auth/react";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { FiArrowRight } from "react-icons/fi";
 import DarkVeil from "@/components/DarkVeil";
 import { Playpen_Sans } from "next/font/google";
+import Image from "next/image";
 
 const playpen = Playpen_Sans({
-  subsets: ['latin'],
-  weight: ['400','600','800']
-})
+  subsets: ["latin"],
+  weight: ["400", "600", "800"],
+});
 
 export default function SignInPage() {
-  const [providers, setProviders] = useState<Record<string,unknown> | null> (null);
-  const { data: session, status } = useSession();
+  const [providers, setProviders] = useState<Record<
+    string,
+    ClientSafeProvider
+  > | null>(null);
+  const { status } = useSession();
   const router = useRouter();
 
   useEffect(() => {
@@ -64,8 +69,10 @@ export default function SignInPage() {
         rounded-3xl shadow-2xl border border-white/20 dark:border-slate-700/20"
           >
             <div className="text-center mb-8">
-              <h1 className={`${playpen.className}
-              text-3xl sm:text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-transparent mb-4`}>
+              <h1
+                className={`${playpen.className}
+              text-3xl sm:text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-transparent mb-4`}
+              >
                 Welcome Back
               </h1>
               <p className="text-lg sm:text-xl text-slate-600 dark:text-slate-300">
@@ -76,7 +83,7 @@ export default function SignInPage() {
             {/* OAuth Buttons */}
             <div className="space-y-4">
               {providers &&
-                Object.values(providers).map((provider: any) => {
+                Object.values(providers).map((provider) => {
                   return (
                     <button
                       key={provider.name}
@@ -89,7 +96,9 @@ export default function SignInPage() {
                   hover:bg-indigo-800
                   "
                     >
-                      <img
+                      <Image
+                        width={24}
+                        height={24}
                         src={logos[provider.id]}
                         alt={`${provider.name} logo`}
                         className="w-6 h-6"

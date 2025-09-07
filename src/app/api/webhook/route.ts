@@ -15,7 +15,7 @@ export const POST = async (req: NextRequest) => {
     const event = stripe.webhooks.constructEvent(
       buf,
       sig,
-      process.env.STRIPE_WEBHOOK_SECRET!
+      process.env.STRIPE_WEBHOOK_SECRET!,
     );
 
     // Handle the event
@@ -46,9 +46,13 @@ export const POST = async (req: NextRequest) => {
 
         // Extract needed info
         const status = subscription.status;
-        const currentPeriodEnd = new Date(
-          (subscription as any)["current_period_end"] * 1000
-        );
+        const subscriptionObj = subscription as Stripe.Subscription & {
+          current_period_end?: number;
+        };
+
+        const currentPeriodEnd = subscriptionObj.current_period_end
+          ? new Date(subscriptionObj.current_period_end * 1000)
+          : null;
 
         // Find user by Stripe customerId
         await prisma.user.update({
@@ -61,7 +65,7 @@ export const POST = async (req: NextRequest) => {
         });
 
         console.log(
-          `Subscription updated: ${subscription.id}, status: ${status}`
+          `Subscription updated: ${subscription.id}, status: ${status}`,
         );
         break;
       }
@@ -86,8 +90,11 @@ export const POST = async (req: NextRequest) => {
     }
 
     return NextResponse.json({ received: true });
-  } catch (err: any) {
-    console.error("Webhook error:", err.message);
-    return NextResponse.json({ error: err.message }, { status: 400 });
+  } catch (err: unknown) {
+    if (err instanceof Error) {
+      console.error("Webhook error:", err.message);
+      return NextResponse.json({ error: err.message }, { status: 400 });
+    }
+    return NextResponse.json({ error: "Unknown error" }, { status: 400 });
   }
 };

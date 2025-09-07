@@ -7,8 +7,6 @@ import { FiXCircle, FiArrowLeft } from "react-icons/fi";
 export default function CancelPage() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center  dark:from-slate-900 dark:via-slate-800 dark:to-blue-900 px-6">
-
-
       {/* Cancel Card */}
       <div className="bg-white dark:bg-slate-800 rounded-3xl shadow-2xl p-12 max-w-xl text-center border border-slate-200 dark:border-slate-700">
         <FiXCircle className="mx-auto w-20 h-20 text-red-500 mb-6 animate-pulse" />
@@ -16,7 +14,8 @@ export default function CancelPage() {
           Payment Cancelled
         </h1>
         <p className="text-lg sm:text-xl text-slate-600 dark:text-slate-300 mb-8">
-          Looks like you didn’t complete your payment. No worries—you can try again anytime!
+          Looks like you didn’t complete your payment. No worries—you can try
+          again anytime!
         </p>
         <Link
           href="/"
