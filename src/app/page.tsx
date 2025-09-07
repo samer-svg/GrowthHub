@@ -105,7 +105,7 @@ export default function LandingPage() {
           particleColors={["#ffffff", "#ffffff"]}
           particleCount={200}
           particleSpread={10}
-          speed={0.3}
+          speed={0.1}
           particleBaseSize={100}
           moveParticlesOnHover={false}
           alphaParticles={false}
