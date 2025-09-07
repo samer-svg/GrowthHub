@@ -1,4 +1,3 @@
-# Node modules and build outputs
 node_modules
 .next
 dist
@@ -6,18 +5,14 @@ out
 build
 coverage
 
-# Prisma generated files
 prisma
 src/generated
 
-# Local config / env
 .env
 *.local
 
-# VSCode / editor files
 .vscode
 .idea
 *.log
 
-# Misc
 .DS_Store
