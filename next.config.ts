@@ -5,11 +5,13 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "leetcode.com",
+        hostname: "neetcode.io",
+        pathname: "/**",
       },
       {
         protocol: "https",
-        hostname: "neetcode.io",
+        hostname: "leetcode.com",
+        pathname: "/**",
       },
     ],
   },
