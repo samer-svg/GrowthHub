@@ -21,6 +21,11 @@ export const authOptions: NextAuthOptions = {
   pages: {
     signIn: "/auth/signin",
   },
+  callbacks: {
+    async redirect({  baseUrl }) {
+      return baseUrl
+    }
+  },
   session: {
     strategy: "jwt",
   },
