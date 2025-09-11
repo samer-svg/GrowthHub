@@ -40,8 +40,6 @@ export default function SignInPage() {
     );
   }
 
-  if (status === "authenticated") return null;
-
   const handleSignIn = (providerId: string) => {
     signIn(providerId, { callbackUrl: "/dashboard" });
   };
